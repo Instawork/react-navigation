@@ -75,7 +75,9 @@ export default function createNavigationContainer<T: *>(
         return;
       }
 
-      const { navigation, screenProps, ...containerProps } = props;
+      // note: dataElement, dataComponent, dataSource are injected by FullStory
+      // we are destructuring them here to prevent the invariant error below
+      const { navigation, screenProps, dataElement, dataComponent, dataSource, ...containerProps } = props;
 
       const keys = Object.keys(containerProps);
 
